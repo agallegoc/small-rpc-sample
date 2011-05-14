@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.lemoulinstudio.small.sample.echo-jse</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>client-server</artifactId>
+  <packaging>jar</packaging>
+  <name>Echo Client-Server</name>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.lemoulinstudio.small</groupId>
+        <artifactId>small-maven-plugin</artifactId>
+        <version>${small.version}</version>
+        <executions>
+          <execution>
+            <id>client-source-generation</id>
+            <phase>generate-sources</phase>
+            <goals><goal>generate-network-files</goal></goals>
+            <configuration>
+              <platform>jse-client</platform>
+              <sourceDirectories>
+                <sourceDirectory>../network-model/src/main/java/</sourceDirectory>
+              </sourceDirectories>
+              <inputBasePackage>game.networkmodel</inputBasePackage>
+              <outputBasePackage>game.network.client</outputBasePackage>
+              <verbose>true</verbose>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>server-source-generation</id>
+            <phase>generate-sources</phase>
+            <goals><goal>generate-network-files</goal></goals>
+            <configuration>
+              <platform>jse-server</platform>
+              <sourceDirectories>
+                <sourceDirectory>../network-model/src/main/java/</sourceDirectory>
+              </sourceDirectories>
+              <inputBasePackage>game.networkmodel</inputBasePackage>
+              <outputBasePackage>game.network.server</outputBasePackage>
+              <verbose>true</verbose>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>common</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>network-model</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.lemoulinstudio.small</groupId>
+      <artifactId>small-annotation-processor</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.lemoulinstudio.small</groupId>
+      <artifactId>small-jse</artifactId>
+    </dependency>
+  </dependencies>
+
+</project>
