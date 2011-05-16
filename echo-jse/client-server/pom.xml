@@ -24,7 +24,7 @@
             <phase>generate-sources</phase>
             <goals><goal>generate-network-files</goal></goals>
             <configuration>
-              <platform>jse</platform>
+              <platform>java</platform>
               <sourceDirectories>
                 <sourceDirectory>../network-model/src/main/java/</sourceDirectory>
               </sourceDirectories>
@@ -40,7 +40,7 @@
             <phase>generate-sources</phase>
             <goals><goal>generate-network-files</goal></goals>
             <configuration>
-              <platform>jse</platform>
+              <platform>java</platform>
               <sourceDirectories>
                 <sourceDirectory>../network-model/src/main/java/</sourceDirectory>
               </sourceDirectories>

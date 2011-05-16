@@ -1,6 +1,6 @@
 package game;
 
-import com.lemoulinstudio.small.common.MessageSender;
+import com.lemoulinstudio.small.jse.MessageSender;
 import game.client.GameClient;
 import game.server.ServerUserSession;
 import java.nio.ByteBuffer;
