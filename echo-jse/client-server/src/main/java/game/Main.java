@@ -1,6 +1,6 @@
 package game;
 
-import com.lemoulinstudio.small.common.MessageListener;
+import com.lemoulinstudio.small.common.MessageSender;
 import game.client.GameClient;
 import game.server.ServerUserSession;
 import java.nio.ByteBuffer;
@@ -25,18 +25,22 @@ public class Main {
      */
 
     // Connection: client output -> server input.
-    gameClient.smallSession.setMessageListener(new MessageListener() {
+    gameClient.smallSession.setMessageSender(new MessageSender() {
       @Override
-      public void notifyMessage(ByteBuffer binaryMessage) {
-        serverUserSession.smallSession.decodeAndExecute(binaryMessage);
+      public void sendMessage(ByteBuffer binaryMessage) {
+        // Direct delivery to the server side, simulated socket.
+        try {serverUserSession.smallSession.decodeAndExecute(binaryMessage);}
+        catch (Exception e) {}
       }
     });
 
     // Connection: server output -> client input.
-    serverUserSession.smallSession.setMessageListener(new MessageListener() {
+    serverUserSession.smallSession.setMessageSender(new MessageSender() {
       @Override
-      public void notifyMessage(ByteBuffer binaryMessage) {
-        gameClient.smallSession.decodeAndExecute(binaryMessage);
+      public void sendMessage(ByteBuffer binaryMessage) {
+        // Direct delivery to the server side, simulated socket.
+        try {gameClient.smallSession.decodeAndExecute(binaryMessage);}
+        catch (Exception e) {}
       }
     });
 

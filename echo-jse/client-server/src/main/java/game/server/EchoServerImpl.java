@@ -17,7 +17,7 @@ public class EchoServerImpl implements EchoServer {
   @Override
   public void requestSaySomethingToEcho(String message) {
     // We just return the message to the user connected to this session.
-    userSession.rootProxy.EchoClient_notifyEchoSaidSomething(message);
+    userSession.echoClientProxy.notifyEchoSaidSomething(message);
   }
 
 }

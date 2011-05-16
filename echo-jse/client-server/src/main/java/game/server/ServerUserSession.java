@@ -3,11 +3,11 @@ package game.server;
 import com.lemoulinstudio.small.jse.SmallSession;
 import com.lemoulinstudio.small.jse.SmallSessionImpl;
 import game.network.server.Configuration;
-import game.network.server.Root;
 import game.network.server.local.EchoServer;
+import game.network.server.remote.EchoClient;
 
 /**
- * This class is for 'per-user' connections on the server side.
+ * This class is a 'per-user' session on the server side.
  *
  * @author Vincent Cantin
  */
@@ -15,7 +15,7 @@ public class ServerUserSession {
 
   public SmallSession smallSession;
   public EchoServer echoServer;
-  public Root rootProxy;
+  public EchoClient echoClientProxy;
 
   public ServerUserSession() {
     // Create the small session.
@@ -33,7 +33,7 @@ public class ServerUserSession {
      * This feature will become optional in the next small release.
      */
     // Create the proxy to talk to the remote host.
-    rootProxy = smallSession.createProxy(Root.class);
+    echoClientProxy = smallSession.createProxy(EchoClient.class);
   }
 
 }

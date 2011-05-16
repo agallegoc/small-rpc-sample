@@ -24,11 +24,12 @@
             <phase>generate-sources</phase>
             <goals><goal>generate-network-files</goal></goals>
             <configuration>
-              <platform>jse-client</platform>
+              <platform>jse</platform>
               <sourceDirectories>
                 <sourceDirectory>../network-model/src/main/java/</sourceDirectory>
               </sourceDirectories>
-              <inputBasePackage>game.networkmodel</inputBasePackage>
+              <inputLocalBasePackage>game.networkmodel.client</inputLocalBasePackage>
+              <inputRemoteBasePackage>game.networkmodel.server</inputRemoteBasePackage>
               <outputBasePackage>game.network.client</outputBasePackage>
               <verbose>true</verbose>
             </configuration>
@@ -39,11 +40,12 @@
             <phase>generate-sources</phase>
             <goals><goal>generate-network-files</goal></goals>
             <configuration>
-              <platform>jse-server</platform>
+              <platform>jse</platform>
               <sourceDirectories>
                 <sourceDirectory>../network-model/src/main/java/</sourceDirectory>
               </sourceDirectories>
-              <inputBasePackage>game.networkmodel</inputBasePackage>
+              <inputLocalBasePackage>game.networkmodel.server</inputLocalBasePackage>
+              <inputRemoteBasePackage>game.networkmodel.client</inputRemoteBasePackage>
               <outputBasePackage>game.network.server</outputBasePackage>
               <verbose>true</verbose>
             </configuration>
