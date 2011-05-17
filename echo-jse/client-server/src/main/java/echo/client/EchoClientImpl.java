@@ -1,6 +1,6 @@
-package game.client;
+package echo.client;
 
-import game.network.client.local.EchoClient;
+import echo.rpc.client.local.EchoClient;
 
 /**
  *

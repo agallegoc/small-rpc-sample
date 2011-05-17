@@ -7,9 +7,9 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>network-model</artifactId>
+  <artifactId>rpc-protocol</artifactId>
   <packaging>jar</packaging>
-  <name>Echo Network Model</name>
+  <name>Echo RPC Protocol</name>
 
   <dependencies>
     <dependency>

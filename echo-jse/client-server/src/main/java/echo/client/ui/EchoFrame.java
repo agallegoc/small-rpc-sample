@@ -1,6 +1,6 @@
-package game.client.ui;
+package echo.client.ui;
 
-import game.client.GameClient;
+import echo.client.GameClient;
 
 /**
  *

@@ -1,11 +1,11 @@
-package game.client;
+package echo.client;
 
 import com.lemoulinstudio.small.jse.SmallSession;
 import com.lemoulinstudio.small.jse.SmallSessionImpl;
-import game.client.ui.EchoFrame;
-import game.network.client.Configuration;
-import game.network.client.local.EchoClient;
-import game.network.client.remote.EchoServer;
+import echo.client.ui.EchoFrame;
+import echo.rpc.client.Configuration;
+import echo.rpc.client.local.EchoClient;
+import echo.rpc.client.remote.EchoServer;
 
 /**
  *

@@ -1,8 +1,8 @@
-package game;
+package echo;
 
 import com.lemoulinstudio.small.jse.MessageSender;
-import game.client.GameClient;
-import game.server.ServerUserSession;
+import echo.client.GameClient;
+import echo.server.ServerUserSession;
 import java.nio.ByteBuffer;
 
 /**

@@ -22,15 +22,15 @@
           <execution>
             <id>client-source-generation</id>
             <phase>generate-sources</phase>
-            <goals><goal>generate-network-files</goal></goals>
+            <goals><goal>generate-rpc-files</goal></goals>
             <configuration>
               <platform>java</platform>
               <sourceDirectories>
-                <sourceDirectory>../network-model/src/main/java/</sourceDirectory>
+                <sourceDirectory>../rpc-protocol/src/main/java/</sourceDirectory>
               </sourceDirectories>
-              <inputLocalBasePackage>game.networkmodel.client</inputLocalBasePackage>
-              <inputRemoteBasePackage>game.networkmodel.server</inputRemoteBasePackage>
-              <outputBasePackage>game.network.client</outputBasePackage>
+              <inputLocalBasePackage>echo.rpc.protocol.client</inputLocalBasePackage>
+              <inputRemoteBasePackage>echo.rpc.protocol.server</inputRemoteBasePackage>
+              <outputBasePackage>echo.rpc.client</outputBasePackage>
               <verbose>true</verbose>
             </configuration>
           </execution>
@@ -38,15 +38,15 @@
           <execution>
             <id>server-source-generation</id>
             <phase>generate-sources</phase>
-            <goals><goal>generate-network-files</goal></goals>
+            <goals><goal>generate-rpc-files</goal></goals>
             <configuration>
               <platform>java</platform>
               <sourceDirectories>
-                <sourceDirectory>../network-model/src/main/java/</sourceDirectory>
+                <sourceDirectory>../rpc-protocol/src/main/java/</sourceDirectory>
               </sourceDirectories>
-              <inputLocalBasePackage>game.networkmodel.server</inputLocalBasePackage>
-              <inputRemoteBasePackage>game.networkmodel.client</inputRemoteBasePackage>
-              <outputBasePackage>game.network.server</outputBasePackage>
+              <inputLocalBasePackage>echo.rpc.protocol.server</inputLocalBasePackage>
+              <inputRemoteBasePackage>echo.rpc.protocol.client</inputRemoteBasePackage>
+              <outputBasePackage>echo.rpc.server</outputBasePackage>
               <verbose>true</verbose>
             </configuration>
           </execution>
@@ -63,7 +63,7 @@
 
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>network-model</artifactId>
+      <artifactId>rpc-protocol</artifactId>
     </dependency>
 
     <dependency>

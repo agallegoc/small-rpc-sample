@@ -27,7 +27,7 @@
 
   <modules>
     <module>common</module>
-    <module>network-model</module>
+    <module>rpc-protocol</module>
     <module>client-server</module>
   </modules>
 
@@ -76,7 +76,7 @@
 
       <dependency>
         <groupId>${project.groupId}</groupId>
-        <artifactId>network-model</artifactId>
+        <artifactId>rpc-protocol</artifactId>
         <version>${project.version}</version>
       </dependency>
 

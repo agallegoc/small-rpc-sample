@@ -1,4 +1,4 @@
-package game.networkmodel.client;
+package echo.rpc.protocol.server;
 
 import com.lemoulinstudio.small.apt.model.Log;
 import com.lemoulinstudio.small.apt.model.Service;
@@ -9,6 +9,6 @@ import com.lemoulinstudio.small.apt.model.Service;
  */
 @Log
 @Service
-public interface EchoClient {
-  public void notifyEchoSaidSomething(String message);
+public interface EchoServer {
+  public void requestSaySomethingToEcho(String message);
 }

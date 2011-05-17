@@ -1,6 +1,6 @@
-package game.server;
+package echo.server;
 
-import game.network.server.local.EchoServer;
+import echo.rpc.server.local.EchoServer;
 
 /**
  *

@@ -1,10 +1,10 @@
-package game.server;
+package echo.server;
 
 import com.lemoulinstudio.small.jse.SmallSession;
 import com.lemoulinstudio.small.jse.SmallSessionImpl;
-import game.network.server.Configuration;
-import game.network.server.local.EchoServer;
-import game.network.server.remote.EchoClient;
+import echo.rpc.server.Configuration;
+import echo.rpc.server.local.EchoServer;
+import echo.rpc.server.remote.EchoClient;
 
 /**
  * This class is a 'per-user' session on the server side.
