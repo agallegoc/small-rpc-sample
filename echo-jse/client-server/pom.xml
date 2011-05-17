@@ -10,7 +10,7 @@
 
   <artifactId>client-server</artifactId>
   <packaging>jar</packaging>
-  <name>Echo Client-Server</name>
+  <name>Echo - Client-Server</name>
 
   <build>
     <plugins>
@@ -56,11 +56,6 @@
   </build>
 
   <dependencies>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>common</artifactId>
-    </dependency>
-
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>rpc-protocol</artifactId>

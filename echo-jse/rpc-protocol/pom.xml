@@ -9,14 +9,9 @@
 
   <artifactId>rpc-protocol</artifactId>
   <packaging>jar</packaging>
-  <name>Echo RPC Protocol</name>
+  <name>Echo - RPC Protocol</name>
 
   <dependencies>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>common</artifactId>
-    </dependency>
-
     <dependency>
       <groupId>com.lemoulinstudio.small</groupId>
       <artifactId>small-model</artifactId>
