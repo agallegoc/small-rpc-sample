@@ -1,7 +1,7 @@
 package echo.server;
 
-import com.lemoulinstudio.small.jse.SmallSession;
-import com.lemoulinstudio.small.jse.SmallSessionImpl;
+import com.lemoulinstudio.small.SmallSession;
+import com.lemoulinstudio.small.SmallSessionImpl;
 import echo.rpc.server.Configuration;
 import echo.rpc.server.local.EchoServer;
 import echo.rpc.server.remote.EchoClient;

@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.lemoulinstudio.small.sample.echo-jse</groupId>
+    <groupId>com.lemoulinstudio.small.sample.echo-java</groupId>
     <artifactId>parent</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
@@ -68,7 +68,7 @@
 
     <dependency>
       <groupId>com.lemoulinstudio.small</groupId>
-      <artifactId>small-jse</artifactId>
+      <artifactId>small-java</artifactId>
     </dependency>
   </dependencies>
 

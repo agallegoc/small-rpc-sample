@@ -1,7 +1,7 @@
 package echo.client;
 
-import com.lemoulinstudio.small.jse.SmallSession;
-import com.lemoulinstudio.small.jse.SmallSessionImpl;
+import com.lemoulinstudio.small.SmallSession;
+import com.lemoulinstudio.small.SmallSessionImpl;
 import echo.client.ui.EchoFrame;
 import echo.rpc.client.Configuration;
 import echo.rpc.client.local.EchoClient;

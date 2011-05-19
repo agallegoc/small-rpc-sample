@@ -1,0 +1,9 @@
+/echo-jse/client-server/target/
+/echo-jse/common/target/
+/echo-jse/network-model/target/
+/echo-jse/rpc-protocol/target/
+/service-on-mina/client/target/
+/service-on-mina/server/target/
+/service-on-mina/rpc-protocol/target/
+/echo-java/client-server/target/
+/echo-java/rpc-protocol/target/

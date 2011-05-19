@@ -99,7 +99,7 @@
       
       <dependency>
         <groupId>com.lemoulinstudio.small</groupId>
-        <artifactId>small-jse</artifactId>
+        <artifactId>small-java</artifactId>
         <version>${small.version}</version>
       </dependency>
       

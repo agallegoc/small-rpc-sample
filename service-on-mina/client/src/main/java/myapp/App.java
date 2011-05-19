@@ -1,6 +1,6 @@
 package myapp;
 
-import com.lemoulinstudio.small.jse.SmallSession;
+import com.lemoulinstudio.small.SmallSession;
 import com.lemoulinstudio.small.mina.SmallRpcCodecFactory;
 import com.lemoulinstudio.small.mina.SmallRpcHandler;
 import java.net.InetSocketAddress;

@@ -1,6 +1,6 @@
 package echo;
 
-import com.lemoulinstudio.small.jse.MessageSender;
+import com.lemoulinstudio.small.MessageSender;
 import echo.client.GameClient;
 import echo.server.ServerUserSession;
 import java.nio.ByteBuffer;

@@ -49,7 +49,7 @@ public class EchoFrame extends javax.swing.JFrame {
     fromServerTextArea = new javax.swing.JTextArea();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-    setTitle("Small-Jse Echo Sample");
+    setTitle("Small Echo Sample");
     setMinimumSize(new java.awt.Dimension(600, 400));
 
     jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Messages sent to the echo server"));
