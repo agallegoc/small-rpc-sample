@@ -28,7 +28,7 @@ public class App {
         SmallSession smallSession = getSmallSession(ioSession);
         
         ChatService chatServiceProxy = smallSession.createProxy(ChatService.class);
-        chatServiceProxy.requestNickname("Vincent");
+        chatServiceProxy.setNickname("Vincent");
       }
     });
     

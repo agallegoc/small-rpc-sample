@@ -1,5 +1,7 @@
 package myapp.service;
 
+import java.util.Arrays;
+import java.util.List;
 import myapp.User;
 import myapp.server.rpc.local.ChatService;
 
@@ -10,11 +12,13 @@ import myapp.server.rpc.local.ChatService;
 public class ChatServiceImpl implements ChatService {
 
   @Override
-  public void requestNickname(User caller, String nickname) {
+  public String setNickname(User caller, String nickname) {
+    return "user-" + nickname;
   }
-
+  
   @Override
-  public void requestNicknameList(User caller) {
+  public List<String> getNicknameList(User caller) {
+    return Arrays.asList("Alice", "Bob", "Cindy", "Dan");
   }
 
   @Override
@@ -24,5 +28,5 @@ public class ChatServiceImpl implements ChatService {
   @Override
   public void sendPrivateMessage(User caller, String nickname, String message) {
   }
-  
+
 }
