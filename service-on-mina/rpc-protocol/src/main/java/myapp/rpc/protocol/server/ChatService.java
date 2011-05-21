@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public interface ChatService {
   public String setNickname(Caller caller, String nickname);
-  public List<String> getNicknameList(Caller caller);
+  public List<String> getNicknameList();
   public void sendMessage(Caller caller, String message);
   public void sendPrivateMessage(Caller caller, String nickname, String message);
 }

@@ -10,5 +10,6 @@ import com.lemoulinstudio.small.apt.model.Service;
 @Log
 @Service
 public interface ChatParticipant {
-  public void notifyMessage(String nickname, String message);
+  public void notifyMessage(String fromUser, String message);
+  public void notifyPrivateMessage(String fromUser, String message);
 }
