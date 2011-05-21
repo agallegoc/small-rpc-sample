@@ -1,7 +1,5 @@
 package myapp.service;
 
-import java.util.List;
-import myapp.User;
 import myapp.client.rpc.local.ChatParticipant;
 
 /**
