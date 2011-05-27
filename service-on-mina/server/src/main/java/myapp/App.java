@@ -1,15 +1,15 @@
 package myapp;
 
 import com.lemoulinstudio.small.SmallSession;
-import com.lemoulinstudio.small.mina.SmallRpcCodecFactory;
-import com.lemoulinstudio.small.mina.SmallRpcHandler;
-import com.lemoulinstudio.small.mina.SmallRpcSessionListener;
-import com.lemoulinstudio.small.mina.SmallRpcSessionListenerAdapter;
+import com.lemoulinstudio.small.mina.MessageCodecFactory;
+import com.lemoulinstudio.small.mina.SmallIoHandler;
+import com.lemoulinstudio.small.mina.SmallIoHandlerListener;
+import com.lemoulinstudio.small.mina.SmallIoHandlerListenerAdapter;
 import java.net.InetSocketAddress;
 import myapp.server.rpc.Configuration;
-import myapp.server.rpc.local.ChatService;
-import myapp.server.rpc.remote.ChatParticipant;
-import myapp.service.ChatServiceImpl;
+import myapp.server.rpc.local.ContactListService;
+import myapp.server.rpc.remote.ContactListClient;
+import myapp.service.ContactListServiceImpl;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
 
@@ -20,17 +20,17 @@ import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
 public class App {
   
   public static void main(String[] args) throws Exception {
-    final ChatServiceImpl chatService = new ChatServiceImpl();
+    final ContactListServiceImpl contactListService = new ContactListServiceImpl();
     
-    SmallRpcSessionListener sessionListener = new SmallRpcSessionListenerAdapter() {
+    SmallIoHandlerListener sessionListener = new SmallIoHandlerListenerAdapter() {
       @Override
       public void sessionCreated(SmallSession smallSession) {
-        smallSession.bind(chatService, ChatService.class);
+        smallSession.bind(contactListService, ContactListService.class);
         
-        ChatParticipant chatParticipantProxy = smallSession.createProxy(ChatParticipant.class);
+        ContactListClient contactListClientProxy = smallSession.createProxy(ContactListClient.class);
         
-        User user = new User(chatParticipantProxy);
-        User.getUsers().add(user);
+        User user = new User(contactListClientProxy);
+        User.addUser(user);
         smallSession.setCallerObject(user);
       }
 
@@ -41,8 +41,8 @@ public class App {
     };
     
     NioSocketAcceptor acceptor = new NioSocketAcceptor();
-    acceptor.getFilterChain().addLast("codec", new ProtocolCodecFilter(new SmallRpcCodecFactory()));
-    acceptor.setHandler(new SmallRpcHandler(new Configuration(), sessionListener));
+    acceptor.getFilterChain().addLast("codec", new ProtocolCodecFilter(new MessageCodecFactory()));
+    acceptor.setHandler(new SmallIoHandler(new Configuration(), sessionListener));
     acceptor.bind(new InetSocketAddress(8080));
   }
   

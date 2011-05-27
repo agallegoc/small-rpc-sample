@@ -1,16 +1,17 @@
 package myapp;
 
 import com.lemoulinstudio.small.SmallSession;
-import com.lemoulinstudio.small.mina.SmallRpcCodecFactory;
-import com.lemoulinstudio.small.mina.SmallRpcHandler;
-import com.lemoulinstudio.small.mina.SmallRpcSessionListener;
-import com.lemoulinstudio.small.mina.SmallRpcSessionListenerAdapter;
+import com.lemoulinstudio.small.mina.MessageCodecFactory;
+import com.lemoulinstudio.small.mina.SmallIoHandler;
+import com.lemoulinstudio.small.mina.SmallIoHandlerListener;
+import com.lemoulinstudio.small.mina.SmallIoHandlerListenerAdapter;
 import java.net.InetSocketAddress;
-import java.util.List;
 import myapp.client.rpc.Configuration;
-import myapp.client.rpc.local.ChatParticipant;
-import myapp.client.rpc.remote.ChatService;
-import myapp.service.ChatParticipantImpl;
+import myapp.client.rpc.local.ContactListClient;
+import myapp.client.rpc.remote.ContactListService;
+import myapp.client.rpc.vo.ContactVO;
+import myapp.rpc.protocol.vo.ContactStatus;
+import myapp.service.ContactListClientImpl;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.transport.socket.nio.NioSocketConnector;
 
@@ -21,27 +22,26 @@ import org.apache.mina.transport.socket.nio.NioSocketConnector;
 public class App {
   
   public static void main(String[] args) throws Exception {
-    final ChatParticipantImpl chatParticipant = new ChatParticipantImpl();
+    final ContactListClientImpl contactListClient = new ContactListClientImpl();
     
-    SmallRpcSessionListener sessionListener = new SmallRpcSessionListenerAdapter() {
+    SmallIoHandlerListener sessionListener = new SmallIoHandlerListenerAdapter() {
       @Override
       public void sessionCreated(SmallSession smallSession) {
-        smallSession.bind(chatParticipant, ChatParticipant.class);
+        smallSession.bind(contactListClient, ContactListClient.class);
       }
       
       @Override
       public void sessionOpened(SmallSession smallSession) {
-        ChatService chatServiceProxy = smallSession.createProxy(ChatService.class);
-        String nickname = chatServiceProxy.setNickname("Alice");
-        System.out.println("nickname = " + nickname);
-        List<String> nicks = chatServiceProxy.getNicknameList();
-        System.out.println("nicks = " + nicks);
+        ContactListService contactListServiceProxy = smallSession.createProxy(ContactListService.class);
+        System.out.println("contacts = " + contactListServiceProxy.getContacts());
+        contactListServiceProxy.setMyData(new ContactVO(-1, "sdf", ContactStatus.Online));
+        System.out.println("contacts = " + contactListServiceProxy.getContacts());
       }
     };
     
     NioSocketConnector connector = new NioSocketConnector();
-    connector.getFilterChain().addLast("codec", new ProtocolCodecFilter(new SmallRpcCodecFactory()));
-    connector.setHandler(new SmallRpcHandler(new Configuration(), sessionListener));
+    connector.getFilterChain().addLast("codec", new ProtocolCodecFilter(new MessageCodecFactory()));
+    connector.setHandler(new SmallIoHandler(new Configuration(), sessionListener));
     connector.connect(new InetSocketAddress(8080));
   }
   

@@ -1,8 +1,10 @@
 package myapp;
 
-import java.util.HashSet;
-import java.util.Set;
-import myapp.server.rpc.remote.ChatParticipant;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import myapp.rpc.protocol.vo.ContactStatus;
+import myapp.server.rpc.remote.ContactListClient;
 
 /**
  *
@@ -10,19 +12,30 @@ import myapp.server.rpc.remote.ChatParticipant;
  */
 public class User {
   
-  private static Set<User> users = new HashSet<User>();
+  private static Map<Integer, User> idToUser = new HashMap<Integer, User>();
+  
+  public static Collection<User> getUsers() {
+    return idToUser.values();
+  }
 
-  public static Set<User> getUsers() {
-    return users;
+  public static User getUser(int id) {
+    return idToUser.get(id);
   }
   
-  public final ChatParticipant chatParticipantProxy;
-  
-  public String nickname;
-
-  public User(ChatParticipant chatParticipantProxy) {
-    this.chatParticipantProxy = chatParticipantProxy;
-    this.nickname = "";
+  public static void addUser(User user) {
+    idToUser.put(user.id, user);
   }
   
+  public final ContactListClient contactListClientProxy;
+  public final int id;
+  public String name;
+  public ContactStatus status;
+
+  public User(ContactListClient contactListClientProxy) {
+    this.contactListClientProxy = contactListClientProxy;
+    id = getUsers().size();
+    name = "";
+    status = ContactStatus.Online;
+  }
+
 }

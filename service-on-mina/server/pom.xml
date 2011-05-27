@@ -30,6 +30,7 @@
               </sourceDirectories>
               <inputLocalBasePackage>myapp.rpc.protocol.server</inputLocalBasePackage>
               <inputRemoteBasePackage>myapp.rpc.protocol.client</inputRemoteBasePackage>
+              <inputVoBasePackage>myapp.rpc.protocol.vo</inputVoBasePackage>
               <outputBasePackage>myapp.server.rpc</outputBasePackage>
               <callerObjectClass>myapp.User</callerObjectClass>
               <verbose>true</verbose>
