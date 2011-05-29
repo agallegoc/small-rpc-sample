@@ -7,6 +7,7 @@ import java.util.List;
 import myapp.User;
 import myapp.server.rpc.local.ContactListService;
 import myapp.server.rpc.vo.ContactVO;
+import myapp.server.rpc.vo.RepertoireVO;
 
 /**
  *
@@ -38,6 +39,11 @@ public class ContactListServiceImpl implements ContactListService {
     }
     
     return vos;
+  }
+
+  @Override
+  public Collection<RepertoireVO> getRepertoires() {
+    return null;
   }
   
 }

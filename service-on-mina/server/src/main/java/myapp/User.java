@@ -34,8 +34,6 @@ public class User {
   public User(ContactListClient contactListClientProxy) {
     this.contactListClientProxy = contactListClientProxy;
     id = getUsers().size();
-    name = "";
-    status = ContactStatus.Online;
   }
 
 }
