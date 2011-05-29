@@ -3,8 +3,8 @@ package myapp;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import myapp.rpc.protocol.vo.ContactStatus;
 import myapp.server.rpc.remote.ContactListClient;
+import myapp.server.rpc.vo.ContactStatus;
 
 /**
  *
