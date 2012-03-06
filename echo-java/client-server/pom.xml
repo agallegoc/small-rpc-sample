@@ -12,6 +12,23 @@
   <packaging>jar</packaging>
   <name>Echo - Client-Server</name>
 
+  <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>rpc-protocol</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.lemoulinstudio.small</groupId>
+      <artifactId>small-annotation-processor</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.lemoulinstudio.small</groupId>
+      <artifactId>small-java</artifactId>
+    </dependency>
+  </dependencies>
+
   <build>
     <plugins>
       <plugin>
@@ -30,6 +47,7 @@
               </sourceDirectories>
               <inputLocalBasePackage>echo.rpc.protocol.client</inputLocalBasePackage>
               <inputRemoteBasePackage>echo.rpc.protocol.server</inputRemoteBasePackage>
+              <inputVoBasePackage>echo.rpc.protocol.vo</inputVoBasePackage>
               <outputBasePackage>echo.rpc.client</outputBasePackage>
               <verbose>true</verbose>
             </configuration>
@@ -46,6 +64,7 @@
               </sourceDirectories>
               <inputLocalBasePackage>echo.rpc.protocol.server</inputLocalBasePackage>
               <inputRemoteBasePackage>echo.rpc.protocol.client</inputRemoteBasePackage>
+              <inputVoBasePackage>echo.rpc.protocol.vo</inputVoBasePackage>
               <outputBasePackage>echo.rpc.server</outputBasePackage>
               <verbose>true</verbose>
             </configuration>
@@ -54,22 +73,5 @@
       </plugin>
     </plugins>
   </build>
-
-  <dependencies>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>rpc-protocol</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>com.lemoulinstudio.small</groupId>
-      <artifactId>small-annotation-processor</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>com.lemoulinstudio.small</groupId>
-      <artifactId>small-java</artifactId>
-    </dependency>
-  </dependencies>
 
 </project>

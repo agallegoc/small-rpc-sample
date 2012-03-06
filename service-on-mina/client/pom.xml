@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -11,35 +13,6 @@
   <artifactId>client</artifactId>
   <packaging>jar</packaging>
   <name>Service On Mina - Client</name>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>com.lemoulinstudio.small</groupId>
-        <artifactId>small-maven-plugin</artifactId>
-        <version>${small.version}</version>
-        <executions>
-          <execution>
-            <id>rpc-source-generation</id>
-            <phase>generate-sources</phase>
-            <goals><goal>generate-rpc-files</goal></goals>
-            <configuration>
-              <platform>java</platform>
-              <sourceDirectories>
-                <sourceDirectory>../rpc-protocol/src/main/java/</sourceDirectory>
-              </sourceDirectories>
-              <inputLocalBasePackage>myapp.rpc.protocol.client</inputLocalBasePackage>
-              <inputRemoteBasePackage>myapp.rpc.protocol.server</inputRemoteBasePackage>
-              <inputVoBasePackage>myapp.rpc.protocol.vo</inputVoBasePackage>
-              <outputBasePackage>myapp.client.rpc</outputBasePackage>
-              <callerObjectClass>myapp.User</callerObjectClass>
-              <verbose>true</verbose>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
 
   <dependencies>
     <dependency>
@@ -67,5 +40,36 @@
       <artifactId>mina-core</artifactId>
     </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.lemoulinstudio.small</groupId>
+        <artifactId>small-maven-plugin</artifactId>
+        <version>${small.version}</version>
+        <executions>
+          <execution>
+            <id>rpc-source-generation</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>generate-rpc-files</goal>
+            </goals>
+            <configuration>
+              <platform>java</platform>
+              <sourceDirectories>
+                <sourceDirectory>../rpc-protocol/src/main/java/</sourceDirectory>
+              </sourceDirectories>
+              <inputLocalBasePackage>myapp.rpc.protocol.client</inputLocalBasePackage>
+              <inputRemoteBasePackage>myapp.rpc.protocol.server</inputRemoteBasePackage>
+              <inputVoBasePackage>myapp.rpc.protocol.vo</inputVoBasePackage>
+              <outputBasePackage>myapp.client.rpc</outputBasePackage>
+              <callerObjectClass>myapp.User</callerObjectClass>
+              <verbose>true</verbose>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>

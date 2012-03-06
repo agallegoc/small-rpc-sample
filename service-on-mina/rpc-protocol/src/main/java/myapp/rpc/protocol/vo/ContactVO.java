@@ -2,7 +2,7 @@ package myapp.rpc.protocol.vo;
 
 /**
  *
- * @author vincent
+ * @author Vincent Cantin
  */
 public class ContactVO {
   public int id;

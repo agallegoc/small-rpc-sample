@@ -8,6 +8,6 @@ public enum ContactStatus {
   Online,
   Idle,
   Away,
-  不見,
+  Invisible,
   Busy;
 }

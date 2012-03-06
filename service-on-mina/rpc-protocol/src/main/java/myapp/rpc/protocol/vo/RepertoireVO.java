@@ -7,7 +7,7 @@ import java.util.Set;
 
 /**
  *
- * @author vincent
+ * @author Vincent Cantin
  */
 public class RepertoireVO {
   public ContactVO contact;
